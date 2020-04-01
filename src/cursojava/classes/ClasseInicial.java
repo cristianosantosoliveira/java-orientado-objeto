@@ -2,6 +2,8 @@ package cursojava.classes;
 
 import javax.swing.JOptionPane;
 
+import com.sun.org.apache.xpath.internal.operations.Equals;
+
 public class ClasseInicial {
 
 	public static void main(String[] args) {
@@ -19,10 +21,6 @@ public class ClasseInicial {
 		String dataMatricula = JOptionPane.showInputDialog("Qual a data da matricula? ");
 		String serie = JOptionPane.showInputDialog("Qual a serie? ");
 		String nomeEscola = JOptionPane.showInputDialog("Qual o nome da Escola? ");
-		String nota1 = JOptionPane.showInputDialog("Digite a nota 1? ");
-		String nota2 = JOptionPane.showInputDialog("Digite a nota 2? ");
-		String nota3 = JOptionPane.showInputDialog("Digite a nota 3? ");
-		String nota4 = JOptionPane.showInputDialog("Digite a nota 4? ");
 
 		Aluno aluno = new Aluno();
 
@@ -36,15 +34,22 @@ public class ClasseInicial {
 		aluno.setDataMatricula(dataMatricula);
 		aluno.setSerieMatriculado(serie);
 		aluno.setNomeEscola(nomeEscola);
-		aluno.setNota1(Double.parseDouble(nota1));
-		aluno.setNota2(Double.parseDouble(nota2));
-		aluno.setNota3(Double.parseDouble(nota3));
-		aluno.setNota4(Double.parseDouble(nota4));
 
-		System.out.println(aluno.toString()); /* Descrição do Objeto na memoria */
+		for (int pos = 1; pos <= 2; pos++) {
+			String nomeDisciplina = JOptionPane.showInputDialog("Entre com nome da disciplina "+pos+"");
+			String notaDisciplina = JOptionPane.showInputDialog("Entre com nota da disciplina "+pos+"");
+			Disciplina disciplina = new Disciplina();
+			disciplina.setDisciplina(nomeDisciplina);
+			disciplina.setNota(Double.valueOf(notaDisciplina));
+			
+			aluno.getDisciplinas().add(disciplina);
+			
+		}
+
+		System.out.println(aluno.toString()); // Descrição do Objeto na memoria /
 		System.out.println("Média da nota é: " + aluno.getMediaNota());
 		System.out.println("Resultado é: " + aluno.getAlunoAprovados());
-		
+
 	}
 
 }

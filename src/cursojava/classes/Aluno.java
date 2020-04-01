@@ -1,5 +1,8 @@
 package cursojava.classes;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /* Classe/Objeto que representa Aluno */
 public class Aluno {
 	/* Atributos da Classe Aluno, que são as caracteristicas */
@@ -13,19 +16,37 @@ public class Aluno {
 	private String dataMatricula;
 	private String nomeEscola;
 	private String serieMatriculado;
-	private double nota1;
-	private double nota2;
-	private double nota3;
-	private double nota4;
+
+	private List<Disciplina> disciplinas = new ArrayList<Disciplina>();
 
 	/* Metodos Getters e Setters */
 	/* Set = Adicionar ou receber dados para os atributos */
 	/* Get = Resgata ou obtem valor do atributo */
 
 	/* Resgata valor */
+
+	public List<Disciplina> getDisciplinas() {
+		return disciplinas;
+	}
+
+	public void setDisciplinas(List<Disciplina> disciplinas) {
+		this.disciplinas = disciplinas;
+	}
+
+	/* Metodo que retorna a media do Aluno */
+	public double getMediaNota() {
+
+		double somaNotas = 0.0;
+
+		for (Disciplina disciplina : disciplinas) {
+			somaNotas += disciplina.getNota();
+		}
+		return somaNotas / disciplinas.size();
+	}
+
 	public String getNome() {
 		return nome;
-	}/* Recebe dados */
+	}
 
 	public void setNome(String nome) {
 		this.nome = nome;
@@ -103,43 +124,6 @@ public class Aluno {
 		this.serieMatriculado = serieMatriculado;
 	}
 
-	public double getNota1() {
-		return nota1;
-	}
-
-	public void setNota1(double nota1) {
-		this.nota1 = nota1;
-	}
-
-	public double getNota2() {
-		return nota2;
-	}
-
-	public void setNota2(double nota2) {
-		this.nota2 = nota2;
-	}
-
-	public double getNota3() {
-		return nota3;
-	}
-
-	public void setNota3(double nota3) {
-		this.nota3 = nota3;
-	}
-
-	public double getNota4() {
-		return nota4;
-	}
-
-	public void setNota4(double nota4) {
-		this.nota4 = nota4;
-	}
-
-	/* Metodo que retorna a media do Aluno */
-	public double getMediaNota() {
-		return (nota1 + nota2 + nota3 + nota4) / 4;
-	}
-
 	public boolean getAlunoAprovado() {
 		double media = this.getMediaNota();
 		if (media >= 70) {
@@ -166,10 +150,7 @@ public class Aluno {
 		return "Aluno [nome=" + nome + ", idade=" + idade + ", dataNasc=" + dataNasc + ", registroGeral="
 				+ registroGeral + ", numeroCpf=" + numeroCpf + ", nomeMae=" + nomeMae + ", nomePai=" + nomePai
 				+ ", dataMatricula=" + dataMatricula + ", nomeEscola=" + nomeEscola + ", serieMatriculado="
-				+ serieMatriculado + ", nota1=" + nota1 + ", nota2=" + nota2 + ", nota3=" + nota3 + ", nota4=" + nota4
-				+ "]";
+				+ serieMatriculado + ", disciplinas=" + disciplinas + "]";
 	}
-	
-	
-	
+
 }
