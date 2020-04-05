@@ -4,21 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import cursojava.constantes.StatusAluno;
-
-/* Classe/Objeto que representa Aluno */
-public class Aluno {
+/* Classe filha de pessoa extende de Pessoa */
+public class Aluno extends Pessoa {
 	/* Atributos da Classe Aluno, que são as caracteristicas */
-	private String nome;
-	private int idade;
-	private String dataNasc;
-	private String registroGeral;
-	private String numeroCpf;
-	private String nomeMae;
-	private String nomePai;
 	private String dataMatricula;
 	private String nomeEscola;
 	private String serieMatriculado;
-
 	private List<Disciplina> disciplinas = new ArrayList<Disciplina>();
 
 	/* Metodos Getters e Setters */
