@@ -149,5 +149,21 @@ public class Aluno extends Pessoa {
 				+ ", dataMatricula=" + dataMatricula + ", nomeEscola=" + nomeEscola + ", serieMatriculado="
 				+ serieMatriculado + ", disciplinas=" + disciplinas + "]";
 	}
+	
+	@Override /* Identifica metodo sobrescrito */
+	public boolean pessoaMaiorIdade() {
+		// TODO Auto-generated method stub
+		return idade >= 22;
+	}
+	
+	public String msgMaiorIdade() {
+		return this.pessoaMaiorIdade() ? "Maior de Idade" : "Opa, não é maior de Idade";
+	}
+
+	@Override
+	public double salario() {
+		// TODO Auto-generated method stub
+		return 1500.98;
+	}
 
 }
