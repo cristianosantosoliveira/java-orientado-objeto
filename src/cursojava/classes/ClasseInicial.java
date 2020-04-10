@@ -6,9 +6,7 @@ import java.util.List;
 
 import javax.swing.JOptionPane;
 
-import com.sun.org.apache.xml.internal.utils.IntVector;
-import com.sun.org.apache.xpath.internal.operations.Equals;
-
+import cursojava.auxiliar.FuncaoAutenticacao;
 import cursojava.constantes.StatusAluno;
 
 public class ClasseInicial {
@@ -21,7 +19,11 @@ public class ClasseInicial {
 		String login = JOptionPane.showInputDialog("Informe o login");
 		String senha = JOptionPane.showInputDialog("Informe o senha");
 
-		if (login.contentEquals("admin") && senha.equals("admin")) {
+
+		if (new FuncaoAutenticacao(new Diretor(login, senha)).autenticar()) { /*
+									 * Trava o contrato para autorizar somente quem realmente tem o ontrato 100%
+									 * legitmo, uma classe a mais que implementa PermitirAcesso além do secretário
+									 */
 
 			List<Aluno> alunos = new ArrayList<Aluno>();
 			/*
@@ -33,28 +35,28 @@ public class ClasseInicial {
 			for (int quantidade = 1; quantidade <= 5; quantidade++) {
 
 				String nome = JOptionPane.showInputDialog("Qual o nome do aluno " + quantidade + "? ");
-			String idade = JOptionPane.showInputDialog("Qual a idade? ");
-			String DataNasc = JOptionPane.showInputDialog("Qual a data de nascimento? ");
-			String rg = JOptionPane.showInputDialog("Qual o RG? ");
-			String cpf = JOptionPane.showInputDialog("Qual o CPF? ");
-			String nomeMae = JOptionPane.showInputDialog("Qual o nome da mãe? ");
-			String nomePai = JOptionPane.showInputDialog("Qual o nome do pai? ");
-			String dataMatricula = JOptionPane.showInputDialog("Qual a data da matricula? ");
-			String serie = JOptionPane.showInputDialog("Qual a serie? ");
-			String nomeEscola = JOptionPane.showInputDialog("Qual o nome da Escola? ");
+//				String idade = JOptionPane.showInputDialog("Qual a idade? ");
+//				String DataNasc = JOptionPane.showInputDialog("Qual a data de nascimento? ");
+//				String rg = JOptionPane.showInputDialog("Qual o RG? ");
+//				String cpf = JOptionPane.showInputDialog("Qual o CPF? ");
+//				String nomeMae = JOptionPane.showInputDialog("Qual o nome da mãe? ");
+//				String nomePai = JOptionPane.showInputDialog("Qual o nome do pai? ");
+//				String dataMatricula = JOptionPane.showInputDialog("Qual a data da matricula? ");
+//				String serie = JOptionPane.showInputDialog("Qual a serie? ");
+//				String nomeEscola = JOptionPane.showInputDialog("Qual o nome da Escola? ");
 
 				Aluno aluno1 = new Aluno();
 
 				aluno1.setNome(nome);
-			aluno1.setIdade(Integer.valueOf(idade));
-			aluno1.setDataNasc(DataNasc);
-			aluno1.setRegistroGeral(rg);
-			aluno1.setNumeroCpf(cpf);
-			aluno1.setNomeMae(nomeMae);
-			aluno1.setNomePai(nomePai);
-			aluno1.setDataMatricula(dataMatricula);
-			aluno1.setSerieMatriculado(serie);
-			aluno1.setNomeEscola(nomeEscola);
+//				aluno1.setIdade(Integer.valueOf(idade));
+//				aluno1.setDataNasc(DataNasc);
+//				aluno1.setRegistroGeral(rg);
+//				aluno1.setNumeroCpf(cpf);
+//				aluno1.setNomeMae(nomeMae);
+//				aluno1.setNomePai(nomePai);
+//				aluno1.setDataMatricula(dataMatricula);
+//				aluno1.setSerieMatriculado(serie);
+//				aluno1.setNomeEscola(nomeEscola);
 
 				for (int pos = 1; pos <= 1; pos++) {
 					String nomeDisciplina = JOptionPane.showInputDialog("Entre com nome da disciplina " + pos + "");
@@ -121,6 +123,8 @@ public class ClasseInicial {
 				System.out.println("Resultado " + aluno.getAlunoAprovados());
 				System.out.println("Media " + aluno.getMediaNota());
 			}
+		} else {
+			JOptionPane.showMessageDialog(null, "Acesso não realizado! ");
 		}
 	}
 
