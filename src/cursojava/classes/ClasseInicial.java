@@ -18,7 +18,7 @@ public class ClasseInicial {
 	public static void main(String[] args) {
 
 		try {
-			lerArquivo();
+			// lerArquivo();
 
 			String login = JOptionPane.showInputDialog("Informe o login");
 			String senha = JOptionPane.showInputDialog("Informe o senha");
@@ -66,6 +66,7 @@ public class ClasseInicial {
 					for (int pos = 1; pos <= 1; pos++) {
 						String nomeDisciplina = JOptionPane.showInputDialog("Entre com nome da disciplina " + pos + "");
 						String notaDisciplina = JOptionPane.showInputDialog("Entre com nota da disciplina " + pos + "");
+						
 						Disciplina disciplina = new Disciplina();
 						disciplina.setDisciplina(nomeDisciplina);
 						disciplina.setNota(Double.valueOf(notaDisciplina));
@@ -150,19 +151,14 @@ public class ClasseInicial {
 		} catch (NullPointerException e) { // Tratando erros especificos
 			JOptionPane.showMessageDialog(null, "Null Point Exception " + e.getClass());
 
-		} catch (FileNotFoundException e) { // Tratando erros genericos
+		} catch (Exception e) { // Tratando erros genericos
 			e.printStackTrace();
 			JOptionPane.showMessageDialog(null, "Erro da exceção customizada " + e.getClass().getName());
-		} finally {/* Sempre será executado ocorrendo erros ou não */
+		} finally {/* Sempre será executado ocorren01do erros ou não */
 			JOptionPane.showMessageDialog(null, "Thanks for studying Java");
 			// Aplicação sempre é usado quando se precisa executar um processo
 			// acontecendo erro ou não em um sistema
 		}
 	}
 
-	public static void lerArquivo() throws FileNotFoundException {
-
-		File file = new File("files.txt");
-		Scanner scanner = new Scanner(file);
-	}
 }
