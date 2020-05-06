@@ -1,6 +1,6 @@
 package cursojava.thread;
 
-public class FilaThread {
+public class ObjetoFilaThread {
 
 	private String nome;
 	private String email;
@@ -40,7 +40,7 @@ public class FilaThread {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		FilaThread other = (FilaThread) obj;
+		ObjetoFilaThread other = (ObjetoFilaThread) obj;
 		if (email == null) {
 			if (other.email != null)
 				return false;
